@@ -5,4 +5,4 @@ var subject = new X500DistinguishedName("CN=OpenIddict Server Signing Certificat
 var request = new CertificateRequest(subject, algorithm, HashAlgorithmName.SHA256, RSASignaturePadding.Pkcs1);
 request.CertificateExtensions.Add(new X509KeyUsageExtension(X509KeyUsageFlags.KeyEncipherment, critical: true));
 var certificate = request.CreateSelfSigned(DateTimeOffset.UtcNow, DateTimeOffset.UtcNow.AddYears(12));
-File.WriteAllBytes("server-signing-certificate.pfx", certificate.Export(X509ContentType.Pfx, "SigningP@ssw0rd"));
+File.WriteAllBytes("SigningCertificate.pfx", certificate.Export(X509ContentType.Pfx, "SigningP@ssw0rd"));
